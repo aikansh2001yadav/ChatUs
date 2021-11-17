@@ -9,10 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -31,12 +31,11 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Stores a reference of loginButton which is used to login user
      */
-    private Button loginButton;
+    private LinearLayout loginButton;
     /**
      * Stores a reference of newUserButton which is used to startActivity for user registration
      */
-    private Button newUserButton;
-    private LinearLayout linearLayout;
+    private TextView registerButton;
     /**
      * Stores a reference of progressBar
      */
@@ -47,23 +46,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        linearLayout = findViewById(R.id.linearLayout);
-        loginProgressBar = findViewById(R.id.loginProgressBar);
+        loginProgressBar = findViewById(R.id.activity_login_progress);
 
         //If the user has already logged up then skip loginActivity
         if(ParseUser.getCurrentUser() != null){
-            linearLayout.setVisibility(View.GONE);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
             startActivity(intent);
-        }else{
-            linearLayout.setVisibility(View.VISIBLE);
-            loginProgressBar.setVisibility(View.GONE);
         }
-        usernameLoginEditText = findViewById(R.id.usernameLoginEditText);
-        passwordLoginEditText = findViewById(R.id.passwordLoginEditText);
-        loginButton = findViewById(R.id.loginButton);
-        newUserButton = findViewById(R.id.newUserButton);
+        usernameLoginEditText = findViewById(R.id.text_login_username);
+        passwordLoginEditText = findViewById(R.id.text_login_password);
+        loginButton = findViewById(R.id.btn_login);
+        registerButton = findViewById(R.id.text_register);
 
         //Setting on click listener on loginButton to login user
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void done(ParseUser user, ParseException e) {
                         if(e == null){
                             if(user != null){
-                                showAlert("Login Successfull", "The user is successfully logged in", true);
+                                showAlert("Login Successful", "The user is successfully logged in", true);
                             }else{
                                 ParseUser.logOut();
                                 showAlert("Login failed", "User can't be logged in: " + " Please try again", false);
@@ -90,9 +84,10 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //Setting on click listener on newUserButton
-        newUserButton.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loginProgressBar.setVisibility(View.GONE);
                 //Starting intent from loginActivity to SignupActivity
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
@@ -159,13 +154,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         if(ParseUser.getCurrentUser() != null){
-            linearLayout.setVisibility(View.GONE);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
             startActivity(intent);
-        }else{
-            linearLayout.setVisibility(View.VISIBLE);
-            loginProgressBar.setVisibility(View.GONE);
         }
     }
 }
