@@ -22,7 +22,7 @@ public class UserProfileViewHolder extends RecyclerView.ViewHolder {
      */
     public UserProfileViewHolder(@NonNull @NotNull View itemView) {
         super(itemView);
-        userProfilePostsImageView = itemView.findViewById(R.id.userProfilePostsImageView);
+        userProfilePostsImageView = itemView.findViewById(R.id.user_personal_post_layout);
     }
 
     /**

@@ -1,7 +1,4 @@
-package com.example.instagramcloneapp;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.instagramcloneapp.activities;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.instagramcloneapp.R;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -48,12 +49,6 @@ public class LoginActivity extends AppCompatActivity {
 
         loginProgressBar = findViewById(R.id.activity_login_progress);
 
-        //If the user has already logged up then skip loginActivity
-        if(ParseUser.getCurrentUser() != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
-            startActivity(intent);
-        }
         usernameLoginEditText = findViewById(R.id.text_login_username);
         passwordLoginEditText = findViewById(R.id.text_login_password);
         loginButton = findViewById(R.id.btn_login);
@@ -111,11 +106,11 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         if(startActivity) {
-                            finish();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
+                            finish();
                         }
                     }
                 })
@@ -153,10 +148,5 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        if(ParseUser.getCurrentUser() != null){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("username", ParseUser.getCurrentUser().getUsername());
-            startActivity(intent);
-        }
     }
 }

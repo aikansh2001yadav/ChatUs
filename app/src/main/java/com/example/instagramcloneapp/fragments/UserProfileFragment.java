@@ -4,41 +4,32 @@ package com.example.instagramcloneapp.fragments;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
-import com.example.instagramcloneapp.MainActivity;
 import com.example.instagramcloneapp.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -72,15 +63,15 @@ public class UserProfileFragment extends Fragment {
     /**
      * Stores a reference of nameEditText which takes the name of current user as an input
      */
-    private EditText nameEditText;
+    private TextInputEditText nameEditText;
     /**
      * Stores a reference of lastNameEditText which takes the last name of current user as an input
      */
-    private EditText lastNameEditText;
+    private TextInputEditText lastNameEditText;
     /**
      * Stores a reference of ageEditText which takes the age of the current user as an input
      */
-    private EditText ageEditText;
+    private TextInputEditText ageEditText;
     /**
      * Stores a reference of genderSpinner which shows gender type of the current user
      */
@@ -88,11 +79,11 @@ public class UserProfileFragment extends Fragment {
     /**
      * Stores a reference of multiLineEditText which takes bio of the current user as an input
      */
-    private EditText multiLineEditText;
+    private TextInputEditText multiLineEditText;
     /**
      * Stores a reference of updateButton which is used to update profile details
      */
-    private Button updateButton;
+    private LinearLayout updateButton;
     /**
      * Stores a reference of detailsRefreshProgressBar
      */
@@ -119,9 +110,9 @@ public class UserProfileFragment extends Fragment {
         ageEditText = view.findViewById(R.id.ageEditText);
         genderSpinner = view.findViewById(R.id.genderSpinner);
         multiLineEditText = view.findViewById(R.id.bioMultiLineEditText);
-        updateButton = view.findViewById(R.id.updateButton);
+        updateButton = view.findViewById(R.id.btn_update);
         detailsRefreshProgressBar = view.findViewById(R.id.detailsRefreshProgressBar);
-        profileLinearLayout = view.findViewById(R.id.profileLinearLayout);
+        profileLinearLayout = view.findViewById(R.id.progressLinearLayout);
         profileImageView = view.findViewById(R.id.profileImageView);
         return view;
     }
@@ -159,7 +150,7 @@ public class UserProfileFragment extends Fragment {
         cropResultLauncher = registerForActivityResult(cropActivityResultContract, new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
-                if(result != null){
+                if (result != null) {
                     profileImageView.setImageURI(result);
                 }
             }
@@ -167,8 +158,8 @@ public class UserProfileFragment extends Fragment {
 
         updateInformation(false);
         String[] genderList = {"Male", "Female", "TransGender"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, genderList);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, genderList);
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_item);
 
         genderSpinner.setAdapter(arrayAdapter);
         genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

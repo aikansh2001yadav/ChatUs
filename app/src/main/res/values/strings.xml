@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">InstagramCloneApp</string>
+    <string name="app_name">Chat Us</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">vcKFn2sf70K5VRoYGrBXErYf25KLlyq0TjNYS1XZ</string>
     <string name="back4app_client_key">03FrKKM6QnHAtRNi4mKx6hybt35FNl6zbvL5zzr4</string>
@@ -15,4 +15,10 @@
     <string name="text_agree_all_conditions">I agree to all <u>terms and conditions</u></string>
     <string name="text_register">Register</string>
     <string name="text_already_account">Already have an account?</string>
+    <string name="text_update_details">Update Details</string>
+    <string name="text_no_info">No Info found</string>
+    <string name="hint_lname">Last Name</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_bio">Bio</string>
 </resources>

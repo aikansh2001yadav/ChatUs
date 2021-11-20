@@ -1,4 +1,4 @@
-package com.example.instagramcloneapp;
+package com.example.instagramcloneapp.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.example.instagramcloneapp.R;
 import com.example.instagramcloneapp.controller.ChatStatusAdapter;
 import com.example.instagramcloneapp.model.ChatStatus;
 import com.parse.FindCallback;

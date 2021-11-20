@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    app:cardBackgroundColor="#D152C7"
     app:cardCornerRadius="16dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="false">
 
     <LinearLayout
+        android:background="@drawable/gradient_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -22,7 +22,7 @@
             android:layout_gravity="center_vertical"
             android:layout_margin="15dp"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <ImageView

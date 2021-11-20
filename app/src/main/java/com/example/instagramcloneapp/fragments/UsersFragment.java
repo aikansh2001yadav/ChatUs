@@ -1,12 +1,10 @@
 package com.example.instagramcloneapp.fragments;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AlertDialog;
@@ -17,8 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.instagramcloneapp.ChatActivity;
-import com.example.instagramcloneapp.MainActivity;
 import com.example.instagramcloneapp.R;
 import com.example.instagramcloneapp.controller.UsersAdapter;
 import com.example.instagramcloneapp.model.User;

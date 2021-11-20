@@ -1,28 +1,27 @@
-package com.example.instagramcloneapp;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.instagramcloneapp.activities;
 
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.TestLooperManager;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.instagramcloneapp.controller.UserPostAdapter;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.instagramcloneapp.R;
 import com.example.instagramcloneapp.controller.UserProfileAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,10 +67,14 @@ public class UserProfileDetailsActivity extends AppCompatActivity {
      */
     private TextView userProfileBioTextView;
     /**
-     * Stores a reference of noPostsTextView used to show when there are no posts
+     * Stores a reference of linearLayout which shows posts
      */
-    private TextView noPostsTextView;
-    private LinearLayout progressLinearLayout;
+    private LinearLayout postsLayout;
+    /**
+     * Stores a reference of progressBar
+     */
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,16 +84,16 @@ public class UserProfileDetailsActivity extends AppCompatActivity {
 
         //Setting title of the current activity
         setTitle("Profile Details");
-        noPostsTextView = findViewById(R.id.noPostsTextView);
-        noPostsTextView.setVisibility(View.GONE);
 
         //Initialising views
         userProfileNameTextView = findViewById(R.id.userProfileNameTextView);
         userProfileAgeTextView = findViewById(R.id.userProfileAgeTextView);
         userProfileGenderTextView = findViewById(R.id.userProfileGenderTextView);
         userProfileBioTextView = findViewById(R.id.userProfileBioTextView);
-        userProfilePictureImageView = findViewById(R.id.userProfilePictureImageView);
-        progressLinearLayout = findViewById(R.id.progressLinearLayout);
+        userProfilePictureImageView = findViewById(R.id.userProfileImageView);
+        postsLayout = findViewById((R.id.recyclerview_posts_layout));
+        progressBar = findViewById(R.id.profile_progress);
+//        progressLinearLayout = findViewById(R.id.progressLinearLayout);
 
         //Initialising userProfileRecyclerView and userProfileAdapter
         userProfileRecyclerView = findViewById(R.id.userProfileRecyclerView);
@@ -102,7 +105,8 @@ public class UserProfileDetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        progressLinearLayout.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+        postsLayout.setVisibility(View.GONE);
         getPosts();
         updateProfileDetails();
     }
@@ -198,16 +202,17 @@ public class UserProfileDetailsActivity extends AppCompatActivity {
                                 }
                             }
                         }
-//                        userProfileAdapter = new UserProfileAdapter(bitmapArrayList);
-//                        userProfileRecyclerView.setAdapter(userProfileAdapter);
+                        postsLayout.setVisibility(View.VISIBLE);
+                        userProfileAdapter = new UserProfileAdapter(bitmapArrayList);
+                        userProfileRecyclerView.setAdapter(userProfileAdapter);
                         userProfileAdapter.notifyDataSetChanged();
-                    }else{
-                        noPostsTextView.setVisibility(View.VISIBLE);
+                    } else {
+                        postsLayout.setVisibility(View.GONE);
                     }
-                }else{
+                } else {
                     showAlert("Error", "Something went wrong: " + e.getMessage());
                 }
-                progressLinearLayout.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

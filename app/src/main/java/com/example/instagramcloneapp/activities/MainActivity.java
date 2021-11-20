@@ -1,4 +1,4 @@
-package com.example.instagramcloneapp;
+package com.example.instagramcloneapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -13,12 +13,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import com.example.instagramcloneapp.R;
 import com.example.instagramcloneapp.controller.CustomAdapter;
-import com.example.instagramcloneapp.model.User;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.parse.FindCallback;

@@ -4,10 +4,12 @@
 
     <item
         android:id="@+id/requestButton"
+        android:icon="@drawable/ic_requests"
         android:title="REQUESTS"
         app:showAsAction="always" />
     <item
         android:id="@+id/logoutButton"
+        android:icon="@drawable/ic_logout"
         android:title="Logout"
         app:showAsAction="always" />
 </menu>

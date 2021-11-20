@@ -15,17 +15,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InstagramCloneApp">
-        <activity android:name=".RequestsActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ChatActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".UserProfileDetailsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SignupActivity"
+        <activity
+            android:name=".activities.SplashActivity"
             android:theme="@style/Theme.InstagramCLoneAppNoActionBar"
-            android:screenOrientation="portrait"/>
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.RequestsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.InstagramCLoneAppNoActionBar" />
+        <activity
+            android:name=".activities.ChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.UserProfileDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.InstagramCLoneAppNoActionBar" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SignupActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.InstagramCLoneAppNoActionBar" />
 
         <meta-data
             android:name="com.parse.SERVER_URL"
@@ -38,19 +56,13 @@
             android:value="@string/back4app_client_key" />
 
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.InstagramCLoneAppNoActionBar"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.InstagramCLoneAppNoActionBar" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

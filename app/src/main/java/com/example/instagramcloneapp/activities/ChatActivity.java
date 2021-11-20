@@ -1,7 +1,4 @@
-package com.example.instagramcloneapp;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.instagramcloneapp.activities;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,7 +14,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.parse.DeleteCallback;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.instagramcloneapp.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -43,11 +44,14 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * Stores a reference of chatEditText used to type message
      */
-    private EditText chatEditText;
+    private TextInputEditText chatEditText;
     /**
      * List adapter to be set as an adapter to chatListView
      */
     private ArrayAdapter<String> listAdapter;
+    /**
+     * Stores a reference of chat list view
+     */
     private ListView chatListView;
     /**
      * Stores chats between the current parse user and receiver
@@ -74,6 +78,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        setTitle("Chat");
         //Initialising views and initialising listAdapter and chatsList
         receiverName = getIntent().getStringExtra("Receiver");
         chatEditText = findViewById(R.id.chatEditText);

@@ -11,9 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.instagramcloneapp.ChatActivity;
+import com.example.instagramcloneapp.activities.ChatActivity;
 import com.example.instagramcloneapp.R;
-import com.example.instagramcloneapp.UserProfileDetailsActivity;
+import com.example.instagramcloneapp.activities.UserProfileDetailsActivity;
 import com.example.instagramcloneapp.model.User;
 import com.example.instagramcloneapp.views.UsersViewHolder;
 import com.parse.FindCallback;
