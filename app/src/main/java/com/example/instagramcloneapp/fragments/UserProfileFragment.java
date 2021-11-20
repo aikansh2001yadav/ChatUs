@@ -206,6 +206,7 @@ public class UserProfileFragment extends Fragment {
                         }
                     });
                 }
+                detailsRefreshProgressBar.setVisibility(View.GONE);
             }
         });
 

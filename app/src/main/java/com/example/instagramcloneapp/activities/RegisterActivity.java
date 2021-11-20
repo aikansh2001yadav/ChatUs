@@ -20,7 +20,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class SignupActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     /**
      * Storing a reference of emailSignupEditText
@@ -51,7 +51,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_register);
 
         //Initialising views
         emailSignupEditText = findViewById(R.id.text_register_email);
@@ -92,6 +92,13 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.text_login_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**
@@ -101,7 +108,7 @@ public class SignupActivity extends AppCompatActivity {
      */
     private void showAlert(String title, String message) {
         signupProgressBar.setVisibility(View.GONE);
-        new AlertDialog.Builder(SignupActivity.this)
+        new AlertDialog.Builder(RegisterActivity.this)
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {

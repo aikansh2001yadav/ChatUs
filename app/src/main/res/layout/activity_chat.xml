@@ -34,6 +34,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_weight="4"
+                android:layout_margin="3dp"
                 android:layout_height="wrap_content"
                 app:boxStrokeWidth="@dimen/stroke_width">
 
@@ -50,7 +51,7 @@
                 android:id="@+id/sendButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_background"
                 android:orientation="vertical">
@@ -60,6 +61,7 @@
                     android:layout_height="0dp"
                     android:layout_margin="15dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="Send"
                     android:textAlignment="center"
                     android:textColor="@color/white"
