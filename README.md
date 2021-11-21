@@ -47,8 +47,7 @@ The primary motivation in building this application to make use of parse server 
   
   - **Account Details Screen:** It shows details of the user account.
    <p align="center">
-   <img src = "images/img_account_details_1.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-   <img src = "images/img_account_details_2.png" width="200" height="400">
+   <img src = "images/img_account_details.png" width="200" height="400">
    </p>
   
   - **User Posts Screen:** The user can add or see posts of the user and his/her friends.
