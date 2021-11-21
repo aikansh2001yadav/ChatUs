@@ -15,3 +15,16 @@ The primary motivation in building this application to make use of parse server 
 
 ## Application Screenshots
 
+* Splash Screen:
+  -<p align="center">
+   <img src = "images/img_splash.png" width="200" height="400">
+   </p>
+   
+* The user will be presented with the authentication screen from which the user can login and register.
+
+  - **Login Screen:** The user can login by entering proper login credentials. 
+  <p align="center">
+  <img src = "images/img_login.png" width="200" height="400">
+  </p>
+  
+  - **Register Screen:** A new account can be created by entering all the necessary details.
