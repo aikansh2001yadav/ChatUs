@@ -64,3 +64,36 @@ The primary motivation in building this application to make use of parse server 
    <p align="center">
    <img src = "images/img_logout.png" width="200" height="400">
    </p>
+
+## Code Structure
+
+Chat Us implements MVC pattern which has following three layers: 
+
+* Model: It represents the business layer of the application. Our application stores various models such as ChatStatus, User and UserPost.
+* View: It defines the presentation of application. The user can login via LoginActivity and register via RegisterActivity. The user can chat via ChatActivity. All the requests can be seen in RequestsActivity. The user can see user details of any other user. The user can set his/her user details in the UserProfileFragment. The user can add post, see posts or other users' posts in the UserPostsFragment. The user can follow any other user in UsersFragment.
+* Controller: It manages the flow of application. Our application consists of  lot of adapters which deal with list of data and update recycler views.
+
+## Package Structure
+
+    com.example.instagramcloneapp      # Root Package
+      .
+      ├── activities                   # Contains various activities to login, register, chat, see requests, see user details of other users and logout.
+      ├── controller                   # Contains adapters to manage the flow of the application.
+      ├── fragments                    # Contains UserPostsFragment to add or see user posts, UserProfileFragment to set profile details of the user and UsersFragment to follow other users or send requests to chat.
+      ├── model                        # Contains various model classes to implement business layer of the application.
+      ├── views                        # Contains various viewholders for the adapter.
+      └── App                          # It initialises Parse.
+      
+## Technologies and Libraries
+- [Java](https://docs.oracle.com/en/java/javase/11/) - Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.
+- [Parse Android SDK](https://www.back4app.com/docs/android/parse-android-sdk) - Parse is an open-source Android SDK and back-end solution that enables developers to build mobile apps with shared data quickly and without writing any back-end code or custom APIs. 
+- [Parse Live Query](https://www.back4app.com/docs/android/real-time/live-query) - Live queries are meant to be used in real-time reactive applications, where just using the traditional query paradigm would come with some problems, like increased response time and high network and server usage. 
+- [Image Cropper](https://github.com/ArthurHub/Android-Image-Cropper) - Powerful (Zoom, Rotation, Multi-Source), customizable (Shape, Limits, Style), optimized (Async, Sampling, Matrix) and simple image cropping library for Android.
+- [Circle Image View](https://github.com/hdodenhof/CircleImageView) - A fast circular ImageView perfect for profile images. This is based on RoundedImageView from Vince Mi which itself is based on techniques recommended by Romain Guy.
+
+## Built With
+
+* Android Studio
+
+## Author
+* <a href="https://github.com/aikansh2001yadav"> **Aikansh Yadav** </a>
