@@ -51,6 +51,7 @@ The primary motivation in building this application to make use of parse server 
       <img src = "images/2.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       <img src = "images/3.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       <img src = "images/4.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <img src = "images/5.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       </p>
   
   - **Account Details Screen:** It shows details of the user account.
