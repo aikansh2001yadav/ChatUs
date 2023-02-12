@@ -45,7 +45,7 @@ The primary motivation in building this application to make use of parse server 
       <img src = "images/img_friends.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       </p>
       
-  - **Realtime Chat Screen:** It provides the ability to chat with other user realtime
+  - **Realtime Chat Screen:** It provides the ability to chat with other user in real-time.
       <p align="center">
       <img src = "images/1.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
       <img src = "images/2.png" width="200" height="400"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
